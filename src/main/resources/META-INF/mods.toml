@@ -1,5 +1,6 @@
 modLoader="javafml"
 loaderVersion="[34,)"
+license="MPL-2.0 License"
 
 [[mods]]
 modId="textdamageindicators"
