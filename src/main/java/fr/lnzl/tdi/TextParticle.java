@@ -9,10 +9,10 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.Vector3f;
+import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -33,8 +33,8 @@ public class TextParticle extends Particle {
 
     private Boolean animationFade;
 
-    public TextParticle(World world, double x, double y, double z) {
-        super(world, x, y, z);
+    public TextParticle(ClientWorld clientWorld, double x, double y, double z) {
+        super(clientWorld, x, y, z);
 
         this.canCollide = false;
 
@@ -159,8 +159,8 @@ public class TextParticle extends Particle {
 
     public static class OnoParticle extends TextParticle {
 
-        public OnoParticle(World world, double x, double y, double z) {
-            super(world, x + 0.1D, y, z + 0.1D);
+        public OnoParticle(ClientWorld clientWorld, double x, double y, double z) {
+            super(clientWorld, x + 0.1D, y, z + 0.1D);
 
             double d1 = (Math.random() + Math.random() + 1.0D) * 0.15D;
             double d2 = MathHelper.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
@@ -200,8 +200,8 @@ public class TextParticle extends Particle {
 
     public static class DamageParticle extends TextParticle {
 
-        public DamageParticle(World world, double x, double y, double z) {
-            super(world, x, y, z);
+        public DamageParticle(ClientWorld clientWorld, double x, double y, double z) {
+            super(clientWorld, x, y, z);
 
             this.tick();
         }
